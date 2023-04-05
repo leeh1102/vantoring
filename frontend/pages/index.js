@@ -1,10 +1,16 @@
 import { Container, Heading, Text } from "@chakra-ui/layout";
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <Container p={10}>
-      <Heading mb={3}>Vantoring Application</Heading>
-      <Text>환영합니다</Text>
-    </Container>
+    <>
+      <Head>
+        <title>Vantoring</title>
+      </Head>
+      <Container p={10}>
+        <Heading mb={3}>Vantoring Application</Heading>
+        <Text>환영합니다</Text>
+      </Container>
+    </>
   );
 }
