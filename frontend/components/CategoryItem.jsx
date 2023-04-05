@@ -3,11 +3,13 @@ import { Box, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useMemo } from "react";
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, size = "md", onClick }) => {
   const { asPath } = useRouter();
 
   const isActiveLink =
     asPath === category.path || asPath === `/category${category.path}`;
+
+  const sizeProps = size === "md" ? { p: 4 } : { p: 2 };
 
   const linkProps = useMemo(
     () =>
@@ -35,13 +37,15 @@ const CategoryItem = ({ category }) => {
     <Link
       href={category.path === "/" ? "/" : `/category${category.path}`}
       w="full"
-      fontSize="larger"
-      fontWeight="bold"
+      fontSize={size === "md" ? "larger" : "md"}
+      fontWeight={size === "md" ? "bold" : "normal"}
       textAlign="center"
+      display="block"
+      onClick={onClick}
       {...linkProps}
     >
-      <Box py={4} px={4} display="flex" justifyContent="center">
-        <Text>{category.title}</Text>
+      <Box {...sizeProps} display="flex" justifyContent="center">
+        <Text whiteSpace="nowrap">{category.title}</Text>
       </Box>
     </Link>
   );
