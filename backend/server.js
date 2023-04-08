@@ -7,9 +7,6 @@ const port = process.env.PORT || 8080;
 const mongoose = require("mongoose")
 app.use(express.json());
 
-// dotenv : to use environment variable
-require('dotenv').config();
-
 // Connect to the port and database
 if (process.env.NODE_ENV === "production")
 {
@@ -26,8 +23,7 @@ app.listen(port, async (err) =>
     try
     {
         await mongoose.connect(
-            process.env.DB_URL
-
+            'mongodb+srv://root:ayG2wQLoY1GRo0GS@vantoring-be.ahjfgzl.mongodb.net/?retryWrites=true&w=majority'
         ).then(() => console.log("Connected to database"));
     } catch (error)
     {
