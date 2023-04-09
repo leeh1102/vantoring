@@ -15,7 +15,7 @@ const questionSchema = new mongoose.Schema({
     required: true
   },
   type: {
-    type: boolean,
+    type: Boolean,
     required: true
   },
   date: {
@@ -40,4 +40,5 @@ const questionSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Question', questionSchema);
+const Question = mongoose.model('Question', questionSchema);
+module.exports = { Question}
