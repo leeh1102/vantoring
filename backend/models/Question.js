@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const questionSchema = new mongoose.Schema({
-  mentorId: {
+  mentor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Mentor',
     required: true
@@ -30,7 +30,7 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  category:{
+  category: {
     type: String,
     required: true
   },
@@ -41,4 +41,4 @@ const questionSchema = new mongoose.Schema({
 });
 
 const Question = mongoose.model('Question', questionSchema);
-module.exports = { Question}
+module.exports = { Question };
