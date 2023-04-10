@@ -1,32 +1,40 @@
-import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from "@chakra-ui/react";
-import { useState } from 'react';
-import Write from '../components/Write';
+import {
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  IconButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { useState } from "react";
+import Write from "../components/Write";
+import useMobile from "@/hooks/useMobile";
+import { AddIcon } from "@chakra-ui/icons";
 
 const WriteButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useMobile();
 
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Button
-        bgColor="#013066"
-        color="white"
-        borderRadius="50px"
-        _hover={{ bgColor: "#011c44" }}
-        _active={{ bgColor: "#011c44" }}
-        _focus={{ boxShadow: "none" }}
-        onClick={handleOpen}
-      >
-        Write
-      </Button>
-      <Modal isOpen={isOpen} onClose={handleClose}>
+      {isMobile ? (
+        <IconButton variant="primary" icon={<AddIcon />} onClick={onOpen} />
+      ) : (
+        <Button
+          borderRadius="50px"
+          variant="primary"
+          size="lg"
+          onClick={onOpen}
+        >
+          Write
+        </Button>
+      )}
+
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create a new post</ModalHeader>

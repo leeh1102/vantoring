@@ -16,7 +16,7 @@ export default function Home({ questions }) {
       <Head>
         <title>Vantoring</title>
       </Head>
-      <Container p={10} maxW="none">
+      <Container p={[4, 10]} maxW="full">
         <AllQuestions initialQuestions={questions} />
       </Container>
     </>

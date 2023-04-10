@@ -11,7 +11,7 @@ const AllQuestions = ({ initialQuestions }) => {
   });
 
   return (
-    <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
+    <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={[4, 6]}>
       {questions.map((question) => (
         <QuestionCard question={question} key={question._id} />
       ))}
