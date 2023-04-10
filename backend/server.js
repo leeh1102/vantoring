@@ -102,3 +102,20 @@ app.get('/api/questions', async (req, res) => {
       });
     }
   });
+
+// GET mentor by ID
+app.get('/api/mentor/:id', async (req, res) => {
+  try {
+    const mentor = await Mentor.findById(req.params.id);
+    res.status(200).json({
+      success: true,
+      data: mentor
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error'
+    });
+  }
+});
