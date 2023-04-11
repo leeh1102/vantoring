@@ -1,3 +1,4 @@
+import categories from "@/services/categories";
 import {
   Box,
   Card,
@@ -18,7 +19,7 @@ const QuestionCard = ({ question }) => {
       <CardHeader pb={0}>
         <Tag px={3} backgroundColor={"primary"} borderRadius={"full"}>
           <TagLabel color="white" fontWeight="bold">
-            {question.category}
+            {categories[question.category].title}
           </TagLabel>
         </Tag>
       </CardHeader>
