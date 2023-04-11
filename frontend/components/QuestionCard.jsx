@@ -17,25 +17,25 @@ const QuestionCard = ({ question }) => {
   return (
     <Card>
       <CardHeader pb={0}>
-        <Tag px={3} backgroundColor={"primary"} borderRadius={"full"}>
+        <Tag px={3} backgroundColor="primary" borderRadius="full">
           <TagLabel color="white" fontWeight="bold">
             {categories[question.category].title}
           </TagLabel>
         </Tag>
       </CardHeader>
-      <CardBody display="flex" flexDir={"column"} gap={2}>
+      <CardBody display="flex" flexDir="column" gap={2}>
         <Heading size="md">{question.title}</Heading>
         <Text>{question.contents}</Text>
       </CardBody>
       <CardFooter
-        display={"flex"}
+        display="flex"
         flexDir="column"
-        justifyContent={"space-between"}
+        justifyContent="space-between"
       >
         <Text color="gray.500" mb={1} fontWeight="bold">
           Author: {question.author}
         </Text>
-        <HStack justifyContent={"space-between"}>
+        <HStack justifyContent="space-between">
           {question.mentorName && (
             <Text color="gray.500">Mentor: {question.mentorName}</Text>
           )}
