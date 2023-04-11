@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
+require("dotenv").config();
+
 const port = process.env.PORT || 8080;
 const mongoose = require("mongoose");
 
@@ -18,9 +20,7 @@ app.listen(port, async (err) => {
   if (err) return console.loge(err);
   try {
     await mongoose
-      .connect(
-        "mongodb+srv://root:ayG2wQLoY1GRo0GS@vantoring-be.ahjfgzl.mongodb.net/?retryWrites=true&w=majority"
-      )
+      .connect(process.env.MONGODB_URI)
       .then(() => console.log("Connected to database"));
   } catch (error) {
     console.log("db error");
