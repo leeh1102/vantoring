@@ -33,6 +33,13 @@ const categories = {
   },
 };
 
-export const categoryList = Object.values(categories);
+const categoryKeys = Object.keys(categories);
+
+export const categoryList = Object.values(categories).map(
+  (category, index) => ({
+    key: categoryKeys[index],
+    ...category,
+  })
+);
 
 export default categories;

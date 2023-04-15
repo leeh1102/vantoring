@@ -1,0 +1,33 @@
+GET http://localhost:8080/api/questions
+
+###
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "title": "about cover letter",
+  "contents": "Is a cover letter necessary?",
+  "type": true,
+  "author": "Kwanyong",
+  "password": "1234",
+  "category": "IT/애니",
+  "mentor": "6432789b73c45d105fd332f6"
+}
+
+### Get mentors
+GET http://localhost:8080/api/mentors
+
+### Get single mentor
+GET http://localhost:8080/api/mentors/6432789b73c45d105fd332f6
+
+### Create mentor
+POST http://localhost:8080/api/mentors
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "Mentor",
+  "email": "testmentor@email.com",
+  "specialty": "itani",
+  "bio": "TEST MANAGER"
+}

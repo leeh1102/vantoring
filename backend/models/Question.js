@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const { categoryTitles, categoryKeys } = require("../constants");
 
 const questionSchema = new mongoose.Schema({
-  mentorId: {
+  mentor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Mentor',
+    ref: "Mentor",
     required: true
   },
   title: {
@@ -30,15 +31,16 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  category:{
+  category: {
     type: String,
-    required: true
+    required: true,
+    enum: categoryKeys
   },
-  commentId: {
+  comments: {
     type: [mongoose.Schema.Types.ObjectId],
-    ref: 'Comment'
+    ref: "Comment"
   }
 });
 
-const Question = mongoose.model('Question', questionSchema);
-module.exports = { Question}
+const Question = mongoose.model("Question", questionSchema);
+module.exports = { Question };
