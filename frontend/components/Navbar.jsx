@@ -16,12 +16,10 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import CategoryItem from "./CategoryItem";
+import useMobile from "@/hooks/useMobile";
 
 export const Navbar = () => {
-  const [isMobile] = useMediaQuery(`(max-width: ${theme.breakpoints.md})`, {
-    ssr: true,
-    fallback: false, // return false on the server, and re-evaluate on the client side
-  });
+  const isMobile = useMobile();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
